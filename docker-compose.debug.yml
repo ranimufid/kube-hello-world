@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  kube-hello-world:
+    image: kube-hello-world
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8181:8181
+      - 9229:9229
+    command: node --inspect=0.0.0.0:9229 index.js

@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  kube-hello-world:
+    image: kube-hello-world
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8181:8181

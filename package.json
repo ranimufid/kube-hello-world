@@ -1,0 +1,8 @@
+{
+  "name": "kube-hello-world",
+  "version": "1.0.0",
+  "description": "js app to print hostname",
+  "main": "index.js",
+  "author": "ranimufid",
+  "license": "MIT"
+}
