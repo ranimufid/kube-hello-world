@@ -18,6 +18,7 @@ phases:
         - export KUBECONFIG=$HOME/.kube/config
   build:
     commands:
+      - export DOCKER_TAG=git-${CODEBUILD_RESOLVED_SOURCE_VERSION}
       - docker build -t ${DOCKER_REGISTRY}/${DOCKER_REPO}:${DOCKER_TAG} .
       - docker push $REPOSITORY_URI:$TAG
 

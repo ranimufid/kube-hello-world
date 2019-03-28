@@ -2,28 +2,6 @@
 var os = require("os");
 var hostname = os.hostname();
 
-// var server = http.createServer(function(request, response) {
-
-//     response.writeHead(200, {"Content-Type": "text/plain"});
-//     response.end("Hello World from: " + hostname);
-
-// });
-
-// var port = 80;
-// server.listen(port);
-
-// console.log("Server running at http://localhost:%d", port);
-/************************************************
-FILENAME
-server_simple.js
-DESCRIPTION
-creates a simple web server that
-display "Hello Dynamic World Wide Web"
-HOW TO START SERVER:
-1) from terminal run 'node simple_server.js'
-2) open web browser visit http://127.0.0.1:8080
-*************************************************/
-
 // Include the HTTP Node library
 // http://nodejs.org/docs/latest/api/http.html
 var http = require('http');
