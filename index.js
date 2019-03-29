@@ -12,15 +12,18 @@ var http = require('http');
 var localIP = "0.0.0.0"; // 127.0.0.1 is used when running the server locally
 var port = 8181; // port to run webserver on
 
-function formatTime(seconds) {
-  function pad(s) {
-    return (s < 10 ? '0' : '') + s;
-  }
-  var hours = Math.floor(seconds / (60 * 60));
-  var minutes = Math.floor(seconds % (60 * 60) / 60);
-  var seconds = Math.floor(seconds % 60);
+function secondsToDhms(seconds) {
+  seconds = Number(seconds);
+  var d = Math.floor(seconds / (3600 * 24));
+  var h = Math.floor(seconds % (3600 * 24) / 3600);
+  var m = Math.floor(seconds % 3600 / 60);
+  var s = Math.floor(seconds % 60);
 
-  return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+  var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+  var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+  return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
 function sayHello(req, res) {
@@ -33,7 +36,7 @@ function sayHello(req, res) {
   // Write out the HTTP response body
   res.write('<html><body style="background-color:Chartreuse;">' +
     '<h1><center>Hello World from: ' + hostname + '</center></h1>' +
-    '<P ALIGN=CENTER><b> uptime: ' + formatTime(uptime) + '</b></P>' +
+    '<P ALIGN=CENTER><b> uptime: ' + secondsToDhms(uptime) + '</b></P>' +
     '<P ALIGN=CENTER><b> platform: ' + platform + '</b></P>' +
     '</p></body></html>');
 
