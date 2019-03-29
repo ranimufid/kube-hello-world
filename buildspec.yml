@@ -31,7 +31,7 @@ phases:
       - aws eks describe-cluster --name ${EKS_CLUSTER_NAME}
       - aws eks update-kubeconfig --name ${EKS_CLUSTER_NAME}
       - kubectl get nodes
-      - kubectl -n core-services set image deploy/hello-world eks-hello-world-testing="${DOCKER_REGISTRY}/${DOCKER_REPO}:${DOCKER_TAG}"
+      - kubectl -n core-services set image deploy/hello-world eks-hello-world-testing="${DOCKER_REGISTRY}/${DOCKER_REPO}:${DOCKER_TAG}" --record
       - printf '[{"name":"hello-k8s","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
 artifacts:
   files: build.json

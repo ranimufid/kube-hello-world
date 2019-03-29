@@ -19,7 +19,7 @@ function sayHello(req, res) {
 
   // Write out the HTTP response body
   res.write('<html><body style="background-color:Chartreuse;">' +
-    '<h1><center>Hello World from: ' + hostname + '</center></h1>' +
+    '<h1><center>Hello leute from: ' + hostname + '</center></h1>' +
     '</body></html>');
 
   // End of HTTP response
